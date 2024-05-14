@@ -35,6 +35,7 @@ import { HostDiscovery as HostDiscovery_2 } from '@backstage/backend-app-api';
 import { HttpAuthService } from '@backstage/backend-plugin-api';
 import { IdentityService } from '@backstage/backend-plugin-api';
 import { isChildPath as isChildPath_2 } from '@backstage/backend-plugin-api';
+import { isDatabaseConflictError as isDatabaseConflictError_2 } from '@backstage/backend-plugin-api';
 import { KubeConfig } from '@kubernetes/client-node';
 import { LifecycleService } from '@backstage/backend-plugin-api';
 import { LoadConfigOptionsRemote } from '@backstage/config-loader';
@@ -218,7 +219,7 @@ export function cacheToPluginCacheManager(
   cache: CacheClient,
 ): PluginCacheManager;
 
-// @public
+// @public @deprecated
 export const coloredFormat: winston.Logform.Format;
 
 // @public
@@ -259,7 +260,7 @@ export function createLegacyAuthAdapters<
       : {}),
 >(options: TOptions): TAdapters;
 
-// @public
+// @public @deprecated
 export function createRootLogger(
   options?: winston.LoggerOptions,
   env?: NodeJS.ProcessEnv,
@@ -366,10 +367,10 @@ export class GerritUrlReader implements UrlReader {
   toString(): string;
 }
 
-// @public
+// @public @deprecated
 export function getRootLogger(): winston.Logger;
 
-// @public
+// @public @deprecated
 export function getVoidLogger(): winston.Logger;
 
 // @public @deprecated
@@ -538,8 +539,8 @@ export const HostDiscovery: typeof HostDiscovery_2;
 // @public @deprecated (undocumented)
 export const isChildPath: typeof isChildPath_2;
 
-// @public
-export function isDatabaseConflictError(e: unknown): boolean;
+// @public @deprecated (undocumented)
+export const isDatabaseConflictError: typeof isDatabaseConflictError_2;
 
 // @public
 export class KubernetesContainerRunner implements ContainerRunner {
@@ -815,7 +816,7 @@ export type ServiceBuilder = {
   start(): Promise<Server>;
 };
 
-// @public
+// @public @deprecated
 export function setRootLogger(newLogger: winston.Logger): void;
 
 // @public @deprecated

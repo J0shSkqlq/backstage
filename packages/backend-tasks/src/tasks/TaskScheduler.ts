@@ -35,6 +35,10 @@ import { LoggerService } from '@backstage/backend-plugin-api';
  * @public
  */
 export class TaskScheduler {
+  /**
+   * @deprecated
+   * It is only used for the legacy backend, and should not be used in new code.
+   */
   static fromConfig(
     config: Config,
     options?: {
