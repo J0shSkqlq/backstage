@@ -1,5 +1,12 @@
 # @backstage/plugin-techdocs
 
+## 1.10.6
+
+### Patch Changes
+
+- e40bd9a: Fixed bug in CopyToClipboardButton component where positioning of the "Copy to clipboard" button in techdocs code snippets was broken in some cases
+- 1256d88: Fix weird opening behaviour of the <TechDocsSearch /> component.
+
 ## 1.10.5
 
 ### Patch Changes

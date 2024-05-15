@@ -1,5 +1,11 @@
 # @backstage/cli
 
+## 0.26.6
+
+### Patch Changes
+
+- 9ee948a: Bump `esbuild` target for package builds to `ES2022`.
+
 ## 0.26.5
 
 ### Patch Changes

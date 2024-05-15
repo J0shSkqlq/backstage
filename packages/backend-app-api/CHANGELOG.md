@@ -1,5 +1,11 @@
 # @backstage/backend-app-api
 
+## 0.7.5
+
+### Patch Changes
+
+- b7de623: Fixed a potential crash when passing an object with a `null` prototype as log meta.
+
 ## 0.7.3
 
 ### Patch Changes
