@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-import { getVoidLogger } from '@backstage/backend-common';
 import { ConfigReader } from '@backstage/config';
 import express from 'express';
 import Router from 'express-promise-router';
 import { resolve as resolvePath } from 'path';
 import request from 'supertest';
 import { createRouter } from './router';
+import { mockServices } from '@backstage/backend-test-utils';
 
 jest.mock('../lib/config', () => ({
   injectConfig: jest.fn(),
@@ -37,7 +37,7 @@ describe('createRouter', () => {
 
   beforeAll(async () => {
     const router = await createRouter({
-      logger: getVoidLogger(),
+      logger: mockServices.logger.mock(),
       config: new ConfigReader({}),
       appPackageName: 'example-app',
     });
@@ -95,7 +95,7 @@ describe('createRouter with static fallback handler', () => {
     });
 
     const router = await createRouter({
-      logger: getVoidLogger(),
+      logger: mockServices.logger.mock(),
       config: new ConfigReader({}),
       appPackageName: 'example-app',
       staticFallbackHandler,

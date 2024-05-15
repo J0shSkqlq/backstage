@@ -16,17 +16,19 @@
 
 import {
   PluginEndpointDiscovery,
-  getVoidLogger,
   TokenManager,
 } from '@backstage/backend-common';
 import { Entity } from '@backstage/catalog-model';
 import { DefaultTechDocsCollator } from './DefaultTechDocsCollator';
-import { setupRequestMockHandlers } from '@backstage/backend-test-utils';
+import {
+  mockServices,
+  setupRequestMockHandlers,
+} from '@backstage/backend-test-utils';
 import { setupServer } from 'msw/node';
 import { rest } from 'msw';
 import { ConfigReader } from '@backstage/config';
 
-const logger = getVoidLogger();
+const logger = mockServices.logger.mock();
 
 const mockSearchDocIndex = {
   config: {

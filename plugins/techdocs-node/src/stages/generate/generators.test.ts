@@ -14,12 +14,13 @@
  * limitations under the License.
  */
 
-import { ContainerRunner, getVoidLogger } from '@backstage/backend-common';
+import { ContainerRunner } from '@backstage/backend-common';
 import { ConfigReader } from '@backstage/config';
 import { Generators } from './generators';
 import { TechdocsGenerator } from './techdocs';
+import { mockServices } from '@backstage/backend-test-utils';
 
-const logger = getVoidLogger();
+const logger = mockServices.logger.mock();
 
 const mockEntity = {
   apiVersion: 'version',

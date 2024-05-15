@@ -32,7 +32,6 @@ import {
   KubernetesRequestAuth,
 } from '@backstage/plugin-kubernetes-common';
 import { PinnipedHelper, PinnipedParameters } from './PinnipedHelper';
-import { getVoidLogger } from '@backstage/backend-common';
 import { HEADER_KUBERNETES_CLUSTER } from '@backstage/plugin-kubernetes-backend';
 import { JsonObject } from '@backstage/types';
 import { rest } from 'msw';
@@ -40,7 +39,7 @@ import { setupServer } from 'msw/node';
 
 describe('Pinniped - tokenCredentialRequest', () => {
   let app: ExtendedHttpServer;
-  const logger = getVoidLogger();
+  const logger = mockServices.logger.mock();
   let httpsRequest: jest.SpyInstance;
   const worker = setupServer();
   setupRequestMockHandlers(worker);

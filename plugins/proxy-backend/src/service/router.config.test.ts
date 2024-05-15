@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { getVoidLogger, HostDiscovery } from '@backstage/backend-common';
+import { HostDiscovery } from '@backstage/backend-common';
 import {
   ConfigSources,
   MutableConfigSource,
@@ -25,6 +25,7 @@ import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import request from 'supertest';
 import { createRouter } from './router';
+import { mockServices } from '@backstage/backend-test-utils';
 
 // this test is stored in its own file to work around the mocked
 // http-proxy-middleware module used in the rest of the tests
@@ -57,7 +58,7 @@ describe('createRouter reloadable configuration', () => {
   afterEach(() => server.resetHandlers());
 
   it('should be able to observe the config', async () => {
-    const logger = getVoidLogger();
+    const logger = mockServices.logger.mock();
 
     // Grab the subscriber function and use mutable config data to mock a config file change
     const mutableConfigSource = MutableConfigSource.create({ data: {} });
